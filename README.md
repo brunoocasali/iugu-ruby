@@ -27,25 +27,21 @@ Iugu.api_key = SEU_TOKEN_DE_API
 ```
 ### Exemplo de cobrança direta de CC em Ruby
 ```ruby
-Iugu::Charge.create(
-      {
-        token: "TOKEN DO IUGU.JS ou LIB",
-        email: "endereço do email do cliente",
-        months: "quantidade de parcelas",
-        items:  
-        [
-          {
-            description: "Item Teste",
-            quantity: 1,
-            price_cents: 1000
-          }
-        ]
-      }
+Iugu::Charge.create(token: "TOKEN DO IUGU.JS ou LIB",
+                    email: "endereço do email do cliente",
+                    months: "quantidade de parcelas",
+                    items: [ 
+                        { 
+                            description: "Item Teste",
+                            quantity: 1,
+                            price_cents: 1000 
+                        }
+                    ]
 )
 ```
 
 ### Exemplo de Gestão de Assinaturas
-###### Com direito a pagamento recorrente via Cartão ou Boleto. No caso de Cartão, recomenda-se vincular um token ao customer (Default Payment Method).
+*Com direito a pagamento recorrente via Cartão ou Boleto. No caso de Cartão, recomenda-se vincular um token ao customer (Default Payment Method).*
 ```ruby
 customer = Iugu::Customer.create(email: "EMAIL DO CLIENTE",
                                  name: "NOME DO CLIENTE")
@@ -54,7 +50,7 @@ subscription = Iugu::Subscription.create(plan_identifier: "basic_plan",
                                          customer_id: customer.id)
 ```
 ### Exemplo de Downgrade/Upgrade de Conta 
-###### (Com cálculo automático de diferença de valores entre planos, créditos, etc)
+*(Com cálculo automático de diferença de valores entre planos, créditos, etc)*
 ```ruby
 subscription.change_plan( "novo_plano" );
 ```
