@@ -50,10 +50,10 @@ subscription = Iugu::Subscription.create(plan_identifier: "basic_plan",
                                          customer_id: customer.id)
 ```
 ### Exemplo de Downgrade/Upgrade de Conta 
-*(Com cálculo automático de diferença de valores entre planos, créditos, etc)*
+*Com cálculo automático de diferença de valores entre planos, créditos, etc.*
 
 ```ruby
-subscription.change_plan( "novo_plano" );
+subscription.change_plan("novo_plano")
 ```
 
 ### Histórico de Pagamentos do Cliente
